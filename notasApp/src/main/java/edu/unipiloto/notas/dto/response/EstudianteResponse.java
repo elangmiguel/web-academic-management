@@ -1,19 +1,13 @@
-package edu.unipiloto.notas.model;
+package edu.unipiloto.notas.dto.response;
 
-import edu.unipiloto.notas.model.template.BaseModel;
+import edu.unipiloto.notas.dto.response.template.BaseResponseDTO;
 
-/**
- * Representa un estudiante en el sistema académico.
- */
-public class Estudiante extends BaseModel {
+public class EstudianteResponse extends BaseResponseDTO{
 	private String nombres;
 	private String apellidos;
 	private String documento;
 	private String correo;
 	private String ciclo;
-
-	public Estudiante() {
-	}
 
 	public String getNombres() {
 		return nombres;
@@ -54,5 +48,4 @@ public class Estudiante extends BaseModel {
 	public void setCiclo(String ciclo) {
 		this.ciclo = ciclo;
 	}
-
 }

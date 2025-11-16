@@ -1,17 +1,9 @@
-package edu.unipiloto.notas.model;
+package edu.unipiloto.notas.dto.patch;
 
-import edu.unipiloto.notas.model.template.BaseModel;
-
-/**
- * Modelo que representa una asignatura dentro del sistema académico.
- */
-public class Asignatura extends BaseModel {
+public class AsignaturaPatch {
 	private Long docenteId;
 	private String nombre;
 	private Integer intensidadHoraria;
-
-	public Asignatura() {
-	}
 
 	public Long getDocenteId() {
 		return docenteId;
@@ -36,4 +28,5 @@ public class Asignatura extends BaseModel {
 	public void setIntensidadHoraria(Integer intensidadHoraria) {
 		this.intensidadHoraria = intensidadHoraria;
 	}
+
 }

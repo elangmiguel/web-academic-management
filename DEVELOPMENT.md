@@ -98,6 +98,10 @@ Se añaden las dependencias indicadas para el desarrollo. JUnit se añadio al cr
 
 `javax.servlet` y `javax.servlet.jsp` se marcan con el scope provided, ya que Apache Tomcat, el servidor de aplicaciones, las proporciona en tiempo de ejecucion. Por lo tantono se necesita incluirlas físicamente en el despliegue.
 
+```sh
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+```
+
 ## Desarrollo
 
 ### Persistencia - Conexion a la base de datos
@@ -184,3 +188,31 @@ Nota (
   observaciones
   ) 
 ```
+
+### Flujo de la aplicacion
+
+```sh
+Cliente (frontend / API)
+    ↓
+Servlet → valida y procesa solicitudes
+    ↓
+Servicio (opcional) → lógica de negocio
+    ↓
+DAO → accede a la base de datos y devuelve entidades
+    ↑
+  Mapper → convierte entre Entity ↔ DTO
+    ↓
+Entity  
+```
+
+index.jsp → Menú de navegación a cada sección.
+
+estudiantes.jsp → Formulario para agregar/editar estudiantes, tabla para listar.
+
+docentes.jsp → Formulario para docentes, tabla para listar.
+
+asignaturas.jsp → Formulario de asignaturas, tabla para listar.
+
+notas.jsp → Formulario para registrar notas por estudiante y asignatura.
+
+reportes.jsp → Tabla de promedios por curso o ciclo.

@@ -1,17 +1,14 @@
-package edu.unipiloto.notas.model;
+package edu.unipiloto.notas.dto.response;
 
-import edu.unipiloto.notas.model.template.BaseModel;
+import edu.unipiloto.notas.dto.response.template.BaseResponseDTO;
 
-public class Nota extends BaseModel {
-	private Long estudianteId; // referencia al estudiante
-	private Long asignaturaId; // referencia a la asignatura
+public class NotaResponse extends BaseResponseDTO {
+	private Long estudianteId;
+	private Long asignaturaId;
 	private double nota1;
 	private double nota2;
 	private double notaFinal;
 	private String observaciones;
-
-	public Nota() {
-	}
 
 	public Long getEstudianteId() {
 		return estudianteId;

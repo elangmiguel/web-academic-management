@@ -1,19 +1,11 @@
-package edu.unipiloto.notas.model;
+package edu.unipiloto.notas.dto.patch;
 
-import edu.unipiloto.notas.model.template.BaseModel;
-
-/**
- * Representa un estudiante en el sistema académico.
- */
-public class Estudiante extends BaseModel {
+public class EstudiantePatch {
 	private String nombres;
 	private String apellidos;
 	private String documento;
 	private String correo;
 	private String ciclo;
-
-	public Estudiante() {
-	}
 
 	public String getNombres() {
 		return nombres;

@@ -1,0 +1,183 @@
+/* ---- GENERAL RESET ---- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    margin: auto;
+    background: linear-gradient(135deg, #1d3557, #457b9d);
+    color: #f1faee;
+    padding: 40px;
+    max-width:1000px;
+}
+
+/* ---- TITLES ---- */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* ---- MAIN MENU ---- */
+ul {
+    list-style: none;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 0;
+}
+
+ul li {
+    margin: 15px 0;
+}
+
+ul li a {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #f1faee;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    backdrop-filter: blur(6px);
+    border: 3px solid rgba(255, 255, 255, 0.1);;
+}
+
+ul li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: scale(1.05);
+}
+
+/* ---- FORM FILTER BOX ---- */
+div {
+    padding: 10px;
+    max-width: 650px;
+    margin-bottom: 20px;
+    margin-right: auto;
+    backdrop-filter: blur(6px);
+}
+
+form {
+    background: rgba(255,255,255,0.15);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    column-gap: 10px;
+    padding-top: 30;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 40px;
+}
+
+label {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+input {
+    padding: 8px 12px;
+    border: solid 2px gray;
+    border-radius: 8px;
+    margin-right: 20px;
+    font-size: 1rem;
+    outline: none;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+input:focus {
+  border: 2px solid lightblue;
+}
+
+/* ---- BUTTON ---- */
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #e63946;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff5964;
+    transform: scale(1.01);
+}
+
+/* ---- TABLE ---- */
+table {
+    width: 100%;
+    margin-top:20px;
+    margin-bottom:20px;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.12);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+}
+
+thead {
+    background: rgba(0,0,0,0.3);
+}
+
+thead th {
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+tbody td {
+    padding: 12px;
+    text-align: center;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+tbody tr:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* Last row without a border */
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+
+    ul li a {
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    div {
+        text-align: center;
+    }
+
+    input {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    table {
+        width: 100%;
+    }
+}

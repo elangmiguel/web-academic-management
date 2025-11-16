@@ -1,14 +1,11 @@
-package edu.unipiloto.notas.model;
+package edu.unipiloto.notas.dto.response;
 
-import edu.unipiloto.notas.model.template.BaseModel;
+import edu.unipiloto.notas.dto.response.template.BaseResponseDTO;
 
-public class Docente extends BaseModel {
+public class DocenteResponse extends BaseResponseDTO {
 	private String nombres;
 	private String apellidos;
 	private String correo;
-
-	public Docente() {
-	}
 
 	public String getNombres() {
 		return nombres;

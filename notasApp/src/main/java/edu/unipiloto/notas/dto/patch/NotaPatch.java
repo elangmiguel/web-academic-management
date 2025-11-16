@@ -1,17 +1,12 @@
-package edu.unipiloto.notas.model;
+package edu.unipiloto.notas.dto.patch;
 
-import edu.unipiloto.notas.model.template.BaseModel;
-
-public class Nota extends BaseModel {
+public class NotaPatch {
 	private Long estudianteId; // referencia al estudiante
 	private Long asignaturaId; // referencia a la asignatura
-	private double nota1;
-	private double nota2;
-	private double notaFinal;
+	private Double nota1;
+	private Double nota2;
+	private Double notaFinal;
 	private String observaciones;
-
-	public Nota() {
-	}
 
 	public Long getEstudianteId() {
 		return estudianteId;
@@ -29,27 +24,27 @@ public class Nota extends BaseModel {
 		this.asignaturaId = asignaturaId;
 	}
 
-	public double getNota1() {
+	public Double getNota1() {
 		return nota1;
 	}
 
-	public void setNota1(double nota1) {
+	public void setNota1(Double nota1) {
 		this.nota1 = nota1;
 	}
 
-	public double getNota2() {
+	public Double getNota2() {
 		return nota2;
 	}
 
-	public void setNota2(double nota2) {
+	public void setNota2(Double nota2) {
 		this.nota2 = nota2;
 	}
 
-	public double getNotaFinal() {
+	public Double getNotaFinal() {
 		return notaFinal;
 	}
 
-	public void setNotaFinal(double notaFinal) {
+	public void setNotaFinal(Double notaFinal) {
 		this.notaFinal = notaFinal;
 	}
 

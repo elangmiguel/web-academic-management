@@ -1,14 +1,9 @@
-package edu.unipiloto.notas.model;
+package edu.unipiloto.notas.dto.patch;
 
-import edu.unipiloto.notas.model.template.BaseModel;
-
-public class Docente extends BaseModel {
+public class DocentePatch {
 	private String nombres;
 	private String apellidos;
 	private String correo;
-
-	public Docente() {
-	}
 
 	public String getNombres() {
 		return nombres;
