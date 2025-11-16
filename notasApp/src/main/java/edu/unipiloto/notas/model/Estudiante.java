@@ -3,56 +3,133 @@ package edu.unipiloto.notas.model;
 import edu.unipiloto.notas.model.template.BaseModel;
 
 /**
- * Representa un estudiante en el sistema académico.
+ * Modelo que representa a un estudiante dentro del sistema académico.
+ *
+ * <p>Incluye información básica de identificación como nombres,
+ * apellidos, documento, correo y ciclo académico. Hereda los campos
+ * de auditoría definidos en {@link BaseModel}.</p>
  */
 public class Estudiante extends BaseModel {
-	private String nombres;
-	private String apellidos;
-	private String documento;
-	private String correo;
-	private String ciclo;
 
-	public Estudiante() {
-	}
+    /**
+     * Nombres del estudiante.
+     */
+    private String nombres;
 
-	public String getNombres() {
-		return nombres;
-	}
+    /**
+     * Apellidos del estudiante.
+     */
+    private String apellidos;
 
-	public void setNombres(String nombres) {
-		this.nombres = nombres;
-	}
+    /**
+     * Documento de identificación del estudiante.
+     */
+    private String documento;
 
-	public String getApellidos() {
-		return apellidos;
-	}
+    /**
+     * Correo electrónico institucional o personal del estudiante.
+     */
+    private String correo;
 
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
+    /**
+     * Ciclo académico en el que se encuentra el estudiante.
+     */
+    private String ciclo;
 
-	public String getDocumento() {
-		return documento;
-	}
+    /**
+     * Constructor por defecto.
+     * Permite crear instancias vacías para inicialización posterior.
+     */
+    public Estudiante() {
+    }
 
-	public void setDocumento(String documento) {
-		this.documento = documento;
-	}
+    /**
+     * Obtiene los nombres del estudiante.
+     *
+     * @return nombres del estudiante
+     */
+    public String getNombres() {
+        return nombres;
+    }
 
-	public String getCorreo() {
-		return correo;
-	}
+    /**
+     * Establece los nombres del estudiante.
+     *
+     * @param nombres nombres completos
+     */
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
 
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
+    /**
+     * Obtiene los apellidos del estudiante.
+     *
+     * @return apellidos del estudiante
+     */
+    public String getApellidos() {
+        return apellidos;
+    }
 
-	public String getCiclo() {
-		return ciclo;
-	}
+    /**
+     * Establece los apellidos del estudiante.
+     *
+     * @param apellidos apellidos completos
+     */
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
 
-	public void setCiclo(String ciclo) {
-		this.ciclo = ciclo;
-	}
+    /**
+     * Obtiene el documento de identificación del estudiante.
+     *
+     * @return documento del estudiante
+     */
+    public String getDocumento() {
+        return documento;
+    }
 
+    /**
+     * Establece el documento de identificación del estudiante.
+     *
+     * @param documento número de identificación
+     */
+    public void setDocumento(String documento) {
+        this.documento = documento;
+    }
+
+    /**
+     * Obtiene el correo electrónico del estudiante.
+     *
+     * @return dirección de correo
+     */
+    public String getCorreo() {
+        return correo;
+    }
+
+    /**
+     * Establece el correo electrónico del estudiante.
+     *
+     * @param correo dirección de correo válida
+     */
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    /**
+     * Obtiene el ciclo académico del estudiante.
+     *
+     * @return ciclo académico
+     */
+    public String getCiclo() {
+        return ciclo;
+    }
+
+    /**
+     * Establece el ciclo académico del estudiante.
+     *
+     * @param ciclo identificación del ciclo
+     */
+    public void setCiclo(String ciclo) {
+        this.ciclo = ciclo;
+    }
 }

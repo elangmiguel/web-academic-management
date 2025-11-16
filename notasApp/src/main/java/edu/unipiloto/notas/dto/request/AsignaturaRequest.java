@@ -1,32 +1,77 @@
 package edu.unipiloto.notas.dto.request;
 
+/**
+ * Representa la estructura de datos necesaria para registrar una nueva asignatura.
+ * Contiene las propiedades mínimas requeridas para una operación de creación (POST).
+ */
 public class AsignaturaRequest {
-	private Long docenteId;
-	private String nombre;
-	private int intensidadHoraria;
 
-	public Long getDocenteId() {
-		return docenteId;
-	}
+    /**
+     * Identificador del docente responsable de la asignatura.
+     */
+    private Long docenteId;
 
-	public void setDocenteId(Long docenteId) {
-		this.docenteId = docenteId;
-	}
+    /**
+     * Nombre oficial de la asignatura.
+     */
+    private String nombre;
 
-	public String getNombre() {
-		return nombre;
-	}
+    /**
+     * Intensidad horaria semanal expresada en número de horas.
+     */
+    private int intensidadHoraria;
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    /**
+     * Obtiene el identificador del docente asignado.
+     *
+     * @return valor Long correspondiente al docente asociado.
+     */
+    public Long getDocenteId() {
+        return docenteId;
+    }
 
-	public int getIntensidadHoraria() {
-		return intensidadHoraria;
-	}
+    /**
+     * Define el identificador del docente responsable.
+     *
+     * @param docenteId identificador del docente.
+     */
+    public void setDocenteId(Long docenteId) {
+        this.docenteId = docenteId;
+    }
 
-	public void setIntensidadHoraria(int intensidadHoraria) {
-		this.intensidadHoraria = intensidadHoraria;
-	}
+    /**
+     * Obtiene el nombre de la asignatura.
+     *
+     * @return cadena con el nombre.
+     */
+    public String getNombre() {
+        return nombre;
+    }
 
+    /**
+     * Define el nombre de la asignatura.
+     *
+     * @param nombre cadena con el nombre de la asignatura.
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * Obtiene la intensidad horaria semanal.
+     *
+     * @return número entero de horas.
+     */
+    public int getIntensidadHoraria() {
+        return intensidadHoraria;
+    }
+
+    /**
+     * Define la intensidad horaria semanal.
+     *
+     * @param intensidadHoraria número de horas.
+     */
+    public void setIntensidadHoraria(int intensidadHoraria) {
+        this.intensidadHoraria = intensidadHoraria;
+    }
 }

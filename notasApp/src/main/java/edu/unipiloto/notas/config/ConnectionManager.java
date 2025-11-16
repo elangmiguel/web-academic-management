@@ -3,68 +3,62 @@ package edu.unipiloto.notas.config;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import javax.sql.DataSource;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Properties;
 
 /**
  * Clase de configuración y manejo de conexiones a la base de datos MySQL.
- * Utiliza Apache DBCP2 para el pool de conexiones.
+ * Utiliza Apache DBCP2 para el pool de conexiones, cargando propiedades desde un archivo externo.
  */
 public class ConnectionManager {
-	@SuppressWarnings("resource")
-	private static final BasicDataSource dataSource = new BasicDataSource();
+    private static final BasicDataSource dataSource = new BasicDataSource();
 
-	static {
-		try {
-			// Cargar driver MySQL explícitamente
-			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			throw new RuntimeException("MySQL JDBC Driver no encontrado en el classpath.", e);
-		}
+    static {
+        Properties props = new Properties();
+        try (InputStream input = ConnectionManager.class.getClassLoader().getResourceAsStream("db.properties")) {
+            if (input == null) {
+                throw new RuntimeException("Archivo de propiedades db.properties no encontrado en classpath.");
+            }
+            props.load(input);
+        } catch (IOException e) {
+            throw new RuntimeException("Error al cargar db.properties.", e);
+        }
 
-		// Configuración del pool de conexiones
-		dataSource.setUrl("jdbc:mysql://localhost:3306/notasdb?useSSL=false&serverTimezone=UTC");
-		dataSource.setUsername("root");
-		dataSource.setPassword("");
+        try {
+            Class.forName(props.getProperty("db.driver"));
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("MySQL JDBC Driver no encontrado en el classpath.", e);
+        }
 
-		// Pool de conexiones
-		dataSource.setInitialSize(5); // conexiones iniciales
-		dataSource.setMaxTotal(20); // máximo de conexiones activas
-		dataSource.setMaxIdle(10); // máximo de conexiones inactivas
-		dataSource.setMinIdle(5); // mínimo de conexiones inactivas
-		dataSource.setValidationQuery("SELECT 1"); // para validar conexiones activas
-		dataSource.setTestOnBorrow(true); // validar al obtener del pool
-	}
+        dataSource.setUrl(props.getProperty("db.url"));
+        dataSource.setUsername(props.getProperty("db.username"));
+        dataSource.setPassword(props.getProperty("db.password"));
+        dataSource.setInitialSize(Integer.parseInt(props.getProperty("db.initialSize")));
+        dataSource.setMaxTotal(Integer.parseInt(props.getProperty("db.maxTotal")));
+        dataSource.setMaxIdle(Integer.parseInt(props.getProperty("db.maxIdle")));
+        dataSource.setMinIdle(Integer.parseInt(props.getProperty("db.minIdle")));
+        dataSource.setValidationQuery(props.getProperty("db.validationQuery"));
+        dataSource.setTestOnBorrow(Boolean.parseBoolean(props.getProperty("db.testOnBorrow")));
+    }
 
-	/**
-	 * Obtiene el DataSource del pool de conexiones.
-	 *
-	 * @return DataSource configurado
-	 */
-	public static DataSource getDataSource() {
-		return dataSource;
-	}
+    public static DataSource getDataSource() {
+        return dataSource;
+    }
 
-	/**
-	 * Obtiene una conexión de la base de datos.
-	 *
-	 * @return Conexión activa
-	 * @throws SQLException si no se puede obtener la conexión
-	 */
-	public static Connection getConnection() throws SQLException {
-		return dataSource.getConnection();
-	}
+    public static Connection getConnection() throws SQLException {
+        return dataSource.getConnection();
+    }
 
-	/**
-	 * Método de prueba rápida para verificar la conexión.
-	 */
-	public static void testConnection() {
-		try (Connection conn = getConnection()) {
-			System.out.println("Conexión exitosa: " + conn.getMetaData().getDatabaseProductName() +
-					" " + conn.getMetaData().getDatabaseProductVersion());
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException("Error al conectarse a la base de datos.", e);
-		}
-	}
+    public static void testConnection() {
+        try (Connection conn = getConnection()) {
+            System.out.println("Conexión exitosa: " + conn.getMetaData().getDatabaseProductName() +
+                    " " + conn.getMetaData().getDatabaseProductVersion());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Error al conectarse a la base de datos.", e);
+        }
+    }
 }
