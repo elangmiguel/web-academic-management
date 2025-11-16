@@ -1,16 +1,16 @@
-# D
+# Registro de desarrollo inicial
 
 Desarrollo de una aplicacion web de gestion de notas guiado por el documento: *TALLER PRÁCTICO: Desarrollo de una Aplicación Web de Notas con Maven*
 
 ## Inicializacion del proyecto
 
-Utilizando el comando dado en la guia de trabajo para la inicializacion del proyecto
+Utilizando el comando dado para la inicializacion del proyecto
 
 ```sh
 mvn archetype:generate -DgroupId=edu.unipiloto.notas -DartifactId=notasApp -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
 ```
 
-Se obtienen multiples errores señalando que el metodo utilizado es obsoleto y muchas de las practicas utilizadas en el documento no son recomendadas o directamente son incompatibles para el desarrollo.
+Se obtienen multiples errores señalando que el metodo utilizado es obsoleto y muchas de las practicas utilizadas en el documento no son recomendadas o directamente son incompatibles para el desarrollo sostenible.
 
 ```sh
 WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
@@ -19,7 +19,7 @@ WARNING: Please consider reporting this to the maintainers of class com.google.i
 WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
 ```
 
-Se evidencia aplicacion de todos los parametros dados al proyecto.
+Se evidencia aplicacion de todos los parametros.
 
 ```sh
 [INFO] ----------------------------------------------------------------------------
@@ -106,7 +106,7 @@ Se añaden las dependencias indicadas para el desarrollo. JUnit se añadio al cr
 
 ### Persistencia - Conexion a la base de datos
 
-Utilizando el contenido proporcionado.
+El contenido proporcionado. `edu.unipiloto.notas.model.ConexionDB`
 
 ```java
 package edu.unipiloto.notas.model;
@@ -133,6 +133,8 @@ public class ConexionBD {
 }
 ```
 
+Sera reemplazado por un pool de conexiones [ConnectionManager.java](./notasApp/src/main/java/edu/unipiloto/notas/config/ConnectionManager.java) utilizando la libreria proporcionada. `apache-commons-dbcp2`
+
 Procurando seguir los lineamientos dados, se crea la base de datos con base en los parametros usados, sea: La base de datos notasdb MySQL en el puerto predeterminado y en el host local, accedida por el usuario root sin contraseña.
 
 ```java
@@ -141,7 +143,7 @@ Procurando seguir los lineamientos dados, se crea la base de datos con base en l
   PASS = "";
 ```
 
-### MVC
+### Guía de desarrollo
 
 De aqui en adelante se da libertad de desarrollo con los siguientes objetivos.
 
@@ -196,23 +198,20 @@ Cliente (frontend / API)
     ↓
 Servlet → valida y procesa solicitudes
     ↓
-Servicio (opcional) → lógica de negocio
-    ↓
 DAO → accede a la base de datos y devuelve entidades
+    ↓
+DTO → transporta los datos que interactuan con las vistas
     ↑
   Mapper → convierte entre Entity ↔ DTO
     ↓
 Entity  
 ```
 
-index.jsp → Menú de navegación a cada sección.
+### Vistas
 
-estudiantes.jsp → Formulario para agregar/editar estudiantes, tabla para listar.
-
-docentes.jsp → Formulario para docentes, tabla para listar.
-
-asignaturas.jsp → Formulario de asignaturas, tabla para listar.
-
-notas.jsp → Formulario para registrar notas por estudiante y asignatura.
-
-reportes.jsp → Tabla de promedios por curso o ciclo.
+- index.jsp → Menú de navegación a cada sección.
+- estudiantes.jsp → Formulario para agregar/editar estudiantes, tabla para listar.
+- docentes.jsp → Formulario para docentes, tabla para listar.
+- asignaturas.jsp → Formulario de asignaturas, tabla para listar.
+- notas.jsp → Formulario para registrar notas por estudiante y asignatura.
+- reportes.jsp → Tabla de promedios por curso o ciclo.

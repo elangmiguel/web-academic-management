@@ -44,6 +44,8 @@ Entity (Modelo persistente)
 
 ## Diagrama Entidad-Relación
 
+![diagrama](./resources/notasdb.diagram.png)
+
 ### Tablas principales
 
 - Estudiante
