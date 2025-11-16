@@ -1,0 +1,54 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <display-name>notasApp</display-name>
+
+    <servlet>
+        <servlet-name>EstudianteServlet</servlet-name>
+        <servlet-class>edu.unipiloto.notas.servlet.EstudianteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EstudianteServlet</servlet-name>
+        <url-pattern>/estudiantes/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DocenteServlet</servlet-name>
+        <servlet-class>edu.unipiloto.notas.servlet.DocenteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DocenteServlet</servlet-name>
+        <url-pattern>/docentes/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AsignaturaServlet</servlet-name>
+        <servlet-class>edu.unipiloto.notas.servlet.AsignaturaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AsignaturaServlet</servlet-name>
+        <url-pattern>/asignaturas/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NotaServlet</servlet-name>
+        <servlet-class>edu.unipiloto.notas.servlet.NotaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NotaServlet</servlet-name>
+        <url-pattern>/notas/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReporteServlet</servlet-name>
+        <servlet-class>edu.unipiloto.notas.servlet.ReporteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReporteServlet</servlet-name>
+        <url-pattern>/reportes/promedios/*</url-pattern>
+    </servlet-mapping>
+
+</web-app>
